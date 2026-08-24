@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+	<defs>
+		<linearGradient id="ring" gradientUnits="userSpaceOnUse" x1="510.5" y1="60" x2="510.5" y2="964">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#c9c9c9"/>
+		</linearGradient>
+		<linearGradient id="barUp" gradientUnits="userSpaceOnUse" x1="248.2" y1="292.8" x2="522.9" y2="616.7">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#c8c8c8"/>
+		</linearGradient>
+		<linearGradient id="barDown" gradientUnits="userSpaceOnUse" x1="489.5" y1="400.9" x2="826.9" y2="677.3">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#c9c9c9"/>
+		</linearGradient>
+	</defs>
+	<circle cx="510.5" cy="512" r="453" fill="#000000"/>
+	<circle cx="510.5" cy="512" r="430.5" fill="none" stroke="url(#ring)" stroke-width="42"/>
+	<circle cx="510.5" cy="512" r="379.5" fill="none" stroke="url(#ring)" stroke-width="19"/>
+	<path fill="url(#barDown)" d="M428 476L655 678L717.5 635L717.5 301L810 372L810 698L655 805L428 602Z"/>
+	<path fill="url(#barUp)" d="M251.5 290L407 179L644 391L644 514L407 299L343 345L343 729L251.5 657Z"/>
+</svg>
