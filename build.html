@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numen · Build</title>
+<meta name="description" content="Run a Numen node, mine asteroids, point Ethereum tooling at the chain. Binaries, commands and endpoints.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Numen · Build">
+<meta property="og:description" content="Run a Numen node, mine asteroids, point Ethereum tooling at the chain. Binaries, commands and endpoints.">
+<meta property="og:url" content="https://numen-network.org/build.html">
+<meta property="og:image" content="https://numen-network.org/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@numen_network">
+<link rel="canonical" href="https://numen-network.org/build.html">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>if (localStorage.getItem('numen-theme') === 'light') document.documentElement.dataset.theme = 'light';</script>
+<script src="asteroid.js" defer></script>
+</head>
+<body>
+
+<canvas id="sky"></canvas>
+
+<div class="page">
+
+  <nav class="nav">
+    <a class="logo" href="index.html">
+      <div class="logo-mark"></div>
+      <span class="logo-name">NUMEN network</span>
+    </a>
+    <div class="nav-links">
+      <a href="build.html" aria-current="page">Build</a>
+      <a href="https://explorer.numen-network.org" target="_blank" rel="noopener">Explorer<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      <a href="https://wallet.numen-network.org" target="_blank" rel="noopener">Wallet<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+      <a href="whitepaper.pdf" target="_blank" rel="noopener">Whitepaper<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle theme">
+      <svg class="ic-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+      <svg class="ic-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </nav>
+
+  <main>
+
+    <header class="p2-hero">
+      <div class="wrap">
+        <div class="eyebrow">Build</div>
+        <h1>Run it yourself</h1>
+        <p class="hero-sub">A node, a miner or a contract. Binaries, commands and endpoints, all on one page.</p>
+      </div>
+    </header>
+
+    <nav class="subnav" aria-label="On this page">
+      <div class="subnav-inner">
+        <span class="subnav-label">On this page</span>
+        <a href="#requirements">Requirements</a>
+        <a href="#run">Run</a>
+        <a href="#mine">Mine</a>
+        <a href="#developers">Developers</a>
+      </div>
+    </nav>
+
+    <section id="requirements" class="band">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-head">
+            <div class="eyebrow">Before you start</div>
+            <h2>Requirements</h2>
+            <p class="lead">A node syncs on modest hardware. Disk usage grows as the chain does.</p>
+          </div>
+          <div class="split-body">
+            <div class="panel">
+              <div class="req">
+                <span></span><span class="req-h">CPU</span><span class="req-h">RAM</span><span class="req-h">Disk</span>
+                <span>Minimum</span><span class="val">1 core</span><span class="val">1 GB</span><span class="val">5 GB</span>
+                <span>Recommended</span><span class="val">4 cores</span><span class="val">4 GB</span><span class="val">20 GB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="run" class="band alt">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-head">
+            <div class="eyebrow">Get started</div>
+            <h2>Run a node</h2>
+            <p class="lead">Prebuilt archives cover Linux x86-64 and macOS arm64. Each one holds the numen binary and mainnet-raw.json. One command syncs the chain and serves RPC. Pass testnet-raw.json instead to join the testnet.</p>
+          </div>
+          <div class="split-body">
+            <div class="quickcard">
+              <div class="pill">Quickstart</div>
+              <h3>Run the latest numen node</h3>
+              <ul class="notes">
+                <li>Open TCP 30333 on your firewall to help strengthen the network.</li>
+                <li>Open UDP 123 both ways as well, or NTP never gets through. Drift past 2 seconds and the node rejects new blocks, stuck on its own fork.</li>
+              </ul>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>./numen --chain mainnet-raw.json</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="cmd-label">Keep the full history</div>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>./numen --chain mainnet-raw.json --state-pruning archive</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="quicklinks">
+                <a class="item-link" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">GitHub releases<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://github.com/numen-network/numen/blob/master/docs/how-to-build.md" target="_blank" rel="noopener">Build from source<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://github.com/numen-network/numen/raw/refs/heads/master/testnet-raw.json" target="_blank" rel="noopener">Testnet chain spec<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+              </div>
+            </div>
+            <div class="quickcard">
+              <div class="pill">systemd</div>
+              <h3>Run it as a service</h3>
+              <p>A systemd unit keeps the node up across reboots and crashes. Put the binary and chain spec under /opt/numen and save the unit as /etc/systemd/system/numen.service.</p>
+              <div class="cmd block">
+                <pre><code>[Unit]
+Description=Numen node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+ExecStart=/opt/numen/numen \
+    --chain /opt/numen/mainnet-raw.json \
+    --in-peers 100 \
+    --out-peers 25 \
+    --in-peers-light 50
+Restart=always
+RestartSec=5s
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="cmd-label">Enable and start</div>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>systemctl daemon-reload &amp;&amp; systemctl enable --now numen</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="cmd-label">Follow the log</div>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>journalctl -u numen -f</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mine" class="band">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-head">
+            <div class="eyebrow">Take part</div>
+            <h2>Mine asteroids</h2>
+            <p class="lead">Scanning asteroids is the work. You mine with a payout address only. The node never holds a private key.</p>
+          </div>
+          <div class="split-body">
+            <div class="quickcard">
+              <div class="pill">Quickstart</div>
+              <h3>Mine with the node scanner</h3>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>./numen --chain mainnet-raw.json --miner &lt;YOUR_ADDRESS&gt; --node-miner &lt;THREADS&gt;</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="flags">
+                <code>--miner</code><span>Reward address in SS58. Also opens the mining RPC.</span>
+                <code>--node-miner</code><span>Scans on every core. Add a thread count to cap it. Drop the flag to leave block authoring to external miners.</span>
+              </div>
+              <ul class="notes">
+                <li>Generate the keypair offline, for example with subkey generate, and pass only the SS58 address. Keep the private key on a separate machine.</li>
+                <li>An invalid SS58 address stops the node at startup.</li>
+              </ul>
+            </div>
+            <div class="quickcard">
+              <div class="pill">Mining pools</div>
+              <h3>Join a pool</h3>
+              <p>Three public pools mine Numen today. Pick one and point your miner at it. You get a share of every block the pool finds instead of waiting for one of your own.</p>
+              <div class="panel">
+                <div class="spec"><span>Rplant</span><span class="val"><a href="https://pool.rplant.xyz/" target="_blank" rel="noopener">pool.rplant.xyz</a></span></div>
+                <div class="spec"><span>NinjaRaider</span><span class="val"><a href="https://ninjaraider.com/numen-pplns" target="_blank" rel="noopener">ninjaraider.com</a></span></div>
+                <div class="spec"><span>DiffPool</span><span class="val"><a href="https://diffpool.xyz/numen/" target="_blank" rel="noopener">diffpool.xyz</a></span></div>
+              </div>
+            </div>
+            <div class="quickcard">
+              <div class="pill">External miners</div>
+              <h3>Drive the mining RPC</h3>
+              <p>With --miner set and --node-miner dropped, the node hands out tasks and accepts seals over JSON-RPC. Each task carries preHash, difficulty, miner and protocol. The scan itself is public code, so a miner of your own starts from the poscan crate and the Spectral3D library.</p>
+              <div class="panel">
+                <div class="spec"><span>mining_getTask</span><span class="val">pulls the current task</span></div>
+                <div class="spec"><span>mining_subscribeTask</span><span class="val">pushes a fresh task every second</span></div>
+                <div class="spec"><span>mining_submitSeal</span><span class="val">accepts a found seal</span></div>
+              </div>
+              <div class="quicklinks">
+                <a class="item-link" href="https://github.com/numen-network/numen/blob/master/node/src/mining_rpc.rs" target="_blank" rel="noopener">Mining RPC source<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://github.com/numen-network/numen/tree/master/consensus/poscan" target="_blank" rel="noopener">PoScan crate<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://github.com/numen-network/spectral3d" target="_blank" rel="noopener">Spectral3D library<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="developers" class="band alt">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-head">
+            <div class="eyebrow">For developers</div>
+            <h2>Point your tools at Numen</h2>
+            <p class="lead">Full EVM through Frontier. The public RPC serves the Substrate and Ethereum namespaces on one endpoint, so MetaMask, Hardhat, Foundry and Polkadot-API all connect to the same URL.</p>
+          </div>
+          <div class="split-body">
+            <div class="grid2">
+              <div class="panel">
+                <div class="panel-label">MAINNET</div>
+                <div class="spec"><span>RPC</span><span class="val">https://rpc.numen-network.org</span></div>
+                <div class="spec"><span>WebSocket</span><span class="val">wss://rpc.numen-network.org</span></div>
+                <div class="spec"><span>Chain ID</span><span class="val">32026</span></div>
+                <div class="spec"><span>Token</span><span class="val">NUMN · 18 decimals</span></div>
+                <div class="spec"><span>SS58 prefix</span><span class="val">14240</span></div>
+                <div class="spec"><span>Explorer</span><span class="val"><a href="https://explorer.numen-network.org" target="_blank" rel="noopener">explorer.numen-network.org</a></span></div>
+                <div class="spec"><span>Wallet</span><span class="val"><a href="https://wallet.numen-network.org" target="_blank" rel="noopener">wallet.numen-network.org</a></span></div>
+              </div>
+              <div class="panel">
+                <div class="panel-label">TESTNET</div>
+                <div class="spec"><span>RPC</span><span class="val">https://testnet.rpc.numen-network.org</span></div>
+                <div class="spec"><span>WebSocket</span><span class="val">wss://testnet.rpc.numen-network.org</span></div>
+                <div class="spec"><span>Chain ID</span><span class="val">320261</span></div>
+                <div class="spec"><span>Token</span><span class="val">tNUMN · 18 decimals</span></div>
+                <div class="spec"><span>SS58 prefix</span><span class="val">14240</span></div>
+                <div class="spec"><span>Explorer</span><span class="val"><a href="https://testnet.explorer.numen-network.org" target="_blank" rel="noopener">testnet.explorer.numen-network.org</a></span></div>
+                <div class="spec"><span>Wallet</span><span class="val"><a href="https://testnet.wallet.numen-network.org" target="_blank" rel="noopener">testnet.wallet.numen-network.org</a></span></div>
+                <div class="spec"><span>Faucet</span><span class="val soon">coming soon</span></div>
+              </div>
+            </div>
+            <div class="quickcard">
+              <div class="pill">Hardhat · Foundry</div>
+              <h3>Add the network</h3>
+              <div class="cmd block">
+                <pre><code>networks: {
+  numen: {
+    type: "http",
+    url: "https://rpc.numen-network.org",
+    chainId: 32026,
+  },
+},</code></pre>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="cmd-label">Check the connection</div>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>cast chain-id --rpc-url https://rpc.numen-network.org</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <p>Native NUMN is an ERC20 at 0x0000000000000000000000000000000000000802, so contracts move the coin without a wrapper. The standard precompiles sit at 0x1 to 0x8. Working Hardhat, Foundry, ethers and web3 setups live in the numen repo.</p>
+              <div class="quicklinks">
+                <a class="item-link" href="https://github.com/numen-network/numen/tree/master/zombienet/evm-tooling" target="_blank" rel="noopener">EVM tooling examples<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://github.com/numen-network/numen/blob/master/runtime/src/configs/evm.rs" target="_blank" rel="noopener">Precompile set<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+              </div>
+            </div>
+            <div class="quickcard">
+              <div class="pill">Integrate Numen</div>
+              <h3>Polkadot-API</h3>
+              <p>Generate typed descriptors from the live metadata and your app gets every pallet, call and constant with full type safety. Track spend caps, deposits, the PoScan protocol string and the precompile address all come from the chain itself.</p>
+              <div class="cmd">
+                <span class="prompt">$</span>
+                <code>npx papi add numen -w wss://rpc.numen-network.org</code>
+                <button class="copy" type="button" aria-label="Copy command">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                </button>
+              </div>
+              <div class="quicklinks">
+                <a class="item-link" href="https://papi.how" target="_blank" rel="noopener">Polkadot-API docs<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+                <a class="item-link" href="https://polkadot.js.org/" target="_blank" rel="noopener">Polkadot.js<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="foot-copy">© 2026 Numen Network</span>
+    <a class="foot-mail" href="mailto:contact@numen-network.org"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Contact</a>
+    <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    <a class="foot-icon" href="https://discord.gg/ajPKdvrvJK" target="_blank" rel="noopener" aria-label="Discord"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+    <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+    <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+    <a class="foot-icon" href="https://bitcointalk.org/index.php?action=profile;u=3763959" target="_blank" rel="noopener" aria-label="Bitcointalk"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg></a>
+    <a class="foot-icon" href="https://www.youtube.com/@numen_network" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </footer>
+
+</div>
+
+<script>
+const nav = document.querySelector('.nav');
+const lift = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+window.addEventListener('scroll', lift, { passive: true });
+lift();
+
+document.querySelector('.theme-toggle').addEventListener('click', () => {
+  const light = document.documentElement.dataset.theme !== 'light';
+  if (light) document.documentElement.dataset.theme = 'light';
+  else delete document.documentElement.dataset.theme;
+  localStorage.setItem('numen-theme', light ? 'light' : 'dark');
+});
+
+document.querySelectorAll('.copy').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.closest('.cmd').querySelector('code').textContent);
+  });
+});
+
+const subnav = document.querySelector('.subnav');
+const spyLinks = [...subnav.querySelectorAll('a')];
+const spySections = spyLinks.map((a) => document.querySelector(a.hash));
+const spy = () => {
+  const y = window.scrollY + window.innerHeight * 0.35;
+  let cur = -1;
+  spySections.forEach((s, i) => { if (s.offsetTop <= y) cur = i; });
+  spyLinks.forEach((a, i) => a.classList.toggle('active', i === cur));
+};
+window.addEventListener('scroll', spy, { passive: true });
+spy();
+</script>
+
+</body>
+</html>

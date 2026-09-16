@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://numen-network.org/</loc></url>
-  <url><loc>https://numen-network.org/network.html</loc></url>
+  <url><loc>https://numen-network.org/build.html</loc></url>
+  <url><loc>https://numen-network.org/whitepaper.pdf</loc></url>
 </urlset>
