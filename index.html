@@ -158,34 +158,112 @@
           </div>
         </div>
 
+        <div class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">The 2030s</div>
+            <h2>Every camera becomes a scanner</h2>
+            <p>A depth sensor rides in every robot, every car and every pair of AR glasses. Scanning stops being a task and turns into something that happens for free, everywhere, all day.</p>
+            <p>The sensor is not the missing piece. What is missing is the answer. A neutral function that runs offline with no backend behind it, telling you which thing this is and who holds it, plus a ledger to write it in. Point a pair of glasses at an object and its on-chain presence surfaces. That is what numen meant in the first place.</p>
+          </div>
+          <div class="panel feature-panel">
+            <div class="panel-label">THE ANSWER</div>
+            <div class="spec"><span>Input</span><span class="val">a depth scan</span></div>
+            <div class="spec"><span>Function</span><span class="val">offline, no backend</span></div>
+            <div class="spec"><span>Output</span><span class="val">one ID</span></div>
+            <div class="spec"><span>Ledger</span><span class="val">who holds it</span></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <section id="roadmap" class="roadmap">
       <div class="wrap">
-        <div class="eyebrow">Roadmap</div>
-        <h2>Mainnet is live</h2>
+        <h2>Roadmap</h2>
         <div class="rm-grid">
           <div class="rm">
-            <div class="rm-date">MAY 2026 → JUL 2026 · ALPHA-0.1 → ALPHA-0.4</div>
+            <div class="rm-date">MAY 2026 → JUL 2026<br>ALPHA-0.1 → ALPHA-0.4</div>
             <h3>Alpha</h3>
             <p>First PoW block. The scan became the work, GRANDPA took finality and the EVM landed.</p>
           </div>
           <div class="rm">
-            <div class="rm-date">JUL 2026 → SEP 2026 · V0.1.0 → V0.4.0</div>
+            <div class="rm-date">JUL 2026 → SEP 2026<br>V0.1.0 → V0.4.0</div>
             <h3>Public testnet</h3>
             <p>Four releases hardened PoScan against mining shortcuts and put identity and every governance power on chain. Block space got repriced and the runtime build became reproducible.</p>
           </div>
           <div class="rm">
-            <div class="rm-date">SEP 2026 · V1.0.0 · LIVE</div>
+            <div class="rm-date">SEP 2026<br>V1.0.0 · LIVE</div>
             <h3>Mainnet</h3>
             <p>Genesis mined on 14 Sep 2026, 01:00 UTC.</p>
           </div>
           <div class="rm next">
-            <div class="rm-date">NEXT</div>
-            <h3>Real-world objects</h3>
-            <p>The scanner behind PoScan meets physical things. Register a scan on chain, check it anywhere. One object, one ID.</p>
+            <div class="rm-date">2026</div>
+            <ul>
+              <li>CPU and GPU miner</li>
+              <li>Light-client bridge to Ethereum</li>
+              <li>Real-world registry on mainnet</li>
+            </ul>
           </div>
+        </div>
+        <div class="longterm">
+          <h3>The long term</h3>
+          <div class="rm-grid">
+            <div class="rm next">
+              <div class="rm-date">BRIDGES</div>
+              <h4>Light-client bridge to Ethereum</h4>
+              <p>An Ethereum contract that checks Numen finality itself. No relayer to trust, no multisig to bribe. Identity proved here, traded where the money already is.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">REGISTRY</div>
+              <h4>Real-world registry on mainnet</h4>
+              <p>One object, one ID. The scanner that secures blocks also registers physical things, so anyone can check a shape anywhere without a tag and without a database to trust.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">MACHINES</div>
+              <h4>Robots, cars, AR glasses as main users</h4>
+              <p>Most lookups will come from a camera, not a person. A robot checks the part it just picked, a car checks a replacement before it goes in, glasses check whatever is in view. Read latency becomes the product.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">HARDWARE</div>
+              <h4>Attested scans</h4>
+              <p>A scan is only as honest as the scanner. Signed sensor output closes the gap between a real object and a model built to match one. Without it a match proves the shape, not the thing.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">ENTROPY</div>
+              <h4>Identity at 128+ bits</h4>
+              <p>Collision resistance is the whole product. At 128 bits a shape is unique among everything ever manufactured, and forging a match costs more than any object is worth.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">CUSTODY</div>
+              <h4>The object is the key</h4>
+              <p>Rebuild the private key from the object and holding becomes signing. No card, no seed phrase, no registry to trust. Lose the object and you lose the key, which is how physical property already works.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">STANDARDS</div>
+              <h4>did:numen in the W3C registry</h4>
+              <p>A DID method anyone can resolve without permission. No custom integration for credentials, supply chain records or other chains.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">MARKETS</div>
+              <h4>Collectibles in the registry</h4>
+              <p>Provenance that survives the object changing hands. The registry answers whether this is the piece in the record, not whether the paperwork looks right.</p>
+            </div>
+            <div class="rm next">
+              <div class="rm-date">SPACE</div>
+              <h4>Asteroids in the registry</h4>
+              <p>An orbit already tells one asteroid from another, and shape models for thousands of them are published. A scan turns a shape into an ID. Ownership out there needs a ledger that belongs to no country.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ladder">
+          <h3>The identity ladder</h3>
+          <ol class="rungs">
+            <li class="rung now"><div class="rung-rise"><div class="rung-n">~15</div><div class="rung-bar" style="--v: .1172" aria-hidden="true"></div></div><div class="rung-tag">bits · today</div><h4>PoScan mining, small registries</h4><p>A match against one registered shape</p></li>
+            <li class="rung"><div class="rung-rise"><div class="rung-n">40</div><div class="rung-bar" style="--v: .3125" aria-hidden="true"></div></div><div class="rung-tag">bits</div><h4>Collectibles, artifacts, industrial parts</h4><p>Unique among 100k objects</p></li>
+            <li class="rung"><div class="rung-rise"><div class="rung-n">64</div><div class="rung-bar" style="--v: .5" aria-hidden="true"></div></div><div class="rung-tag">bits</div><h4>did:numen IDs, ownership anchors for other chains</h4><p>Unique among 10M objects</p></li>
+            <li class="rung"><div class="rung-rise"><div class="rung-n">80</div><div class="rung-bar" style="--v: .625" aria-hidden="true"></div></div><div class="rung-tag">bits</div><h4>Tagless product passports</h4><p>Unique among 1B objects</p></li>
+            <li class="rung"><div class="rung-rise"><div class="rung-n">128+</div><div class="rung-bar" style="--v: 1" aria-hidden="true"></div></div><div class="rung-tag">bits · attested scans</div><h4>The object is the key. To hold is to sign.</h4><p>A key rebuilt from the object itself</p></li>
+          </ol>
         </div>
       </div>
     </section>
