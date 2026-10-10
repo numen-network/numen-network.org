@@ -439,6 +439,15 @@ html[data-theme="light"] .theme-toggle .ic-moon { display: block; }
 
 .person h3 { margin: 0; font-size: 17px; font-weight: 600; }
 
+.role {
+  margin-top: -6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
 .contacts {
   display: flex;
   flex-direction: column;
